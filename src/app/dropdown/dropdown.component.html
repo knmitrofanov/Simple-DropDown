@@ -1,0 +1,13 @@
+<div class="dropdown-wrapp" #dropdown [class.active]="isOpen">
+    <div class="input-wrapp">
+        <input type="text" name="dropdown-value" class="dropdown-input" [(ngModel)]="dropdownValue" (keydown)="onKeyDown($event)">
+        <span (click)="onResetClick()" class="resetBtn">&#x2715;</span>
+    </div>
+
+    <ul class="dropdown-list">
+        <li class="list-item" *ngFor="let item of items; let i = index" (click)="onListItemClick(i)"
+            [ngClass]="{'selected': i === selectedItemIndex ? true  : false}">
+            {{items.length - i}} - {{item}}
+        </li>
+    </ul>
+</div>
